@@ -1,0 +1,515 @@
+
+
+label{
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+
+
+.rememberMe{
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin:0;
+    vertical-align: bottom;
+    position: relative;
+    top: -10px;
+    *overflow: hidden;
+}
+
+
+.moviefinder{
+    position: absolute;
+    left: 41%;
+  
+    top: 8.89%;
+    bottom: 87.16%;
+
+
+}
+
+
+
+.title{
+    position: relative;
+    left: 5.17%;
+    
+    top: 7.7%;
+    bottom: 70.52%;
+    color:white;
+
+    
+}
+
+
+
+
+
+
+
+body{
+    background-image: url("../images/back.jpg");
+
+    background-size: cover;
+    
+}
+
+
+
+
+
+
+
+
+
+.box{
+    
+   width: 250px;
+   background-color:rgb(226, 233, 235);
+    border: 4px solid rgb(14, 14, 14);
+    padding: 20px;
+    margin: 20px;
+   
+}
+.login-form{
+    position: absolute;
+    width: 445px;
+    height: 570px;
+    left: 34.5%;
+    right:34.5%;
+    top: 160px;
+    background: rgba(49, 49, 49, 0.95);
+    box-shadow: 0px 6px 6px rgba(11, 11, 11, 0.8);
+    border-radius: 10px;
+}
+
+
+
+.input1{
+    position: absolute;
+left: 10.58%;
+top: 16.93%;
+width: 355.11px;
+height: 45.19px;
+
+background: #FFFFFF;
+border-radius: 5px;
+}
+.input1::placeholder {
+   position: absolute;
+    opacity: .5;
+    left:2.27%;
+    top:30%;
+    color: #BCBCBC;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+  
+}
+
+
+.password{
+    position: absolute;
+left: 10.58%;
+top: 26.84%;
+}
+
+.input2{
+
+width: 355.11px;
+height: 45.19px;
+
+background: #FFFFFF;
+border-radius: 5px;
+}
+.ellipse{
+    display: flex;
+position: absolute;
+top:33.84%;
+left: 90.5%;
+cursor: pointer;
+}
+
+.ellipse2{
+
+    display: flex;
+    position: absolute;
+    top:33.84%;
+    left: 90.5%;
+    cursor: pointer;
+    }
+.input2::placeholder {
+    position: absolute;
+     opacity: .5;
+     left:2.27%;
+     top:25%;
+     color: #BCBCBC;
+ }
+
+
+.extra-buttons{
+    position:grid;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 32px;
+    /* identical to box height, or 320% */
+    cursor: pointer;
+}
+
+
+
+
+
+
+.span2{
+position: absolute;
+left: 65.23%;
+
+top: 35.39%;
+
+
+
+
+color: #29B9FC;
+cursor:pointer;
+
+}
+
+
+
+
+.remember{
+    position: absolute;
+    left: 10.80%;
+    top: 35.39%;    
+    color: #f1f4f6;
+    cursor:pointer;
+    
+    
+    }
+
+
+.login{
+    
+position: absolute;
+    left: 10%;
+top: 41.5%;
+
+}
+.login span{
+    position:relative;
+    
+  color:rgb(232, 11, 11);
+  padding-left: 30%;
+  padding-top: 2%;
+
+}
+
+.login-button{
+    display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 8px 18px;
+gap: 4px;
+
+
+width: 354px;
+height: 47px;
+left: 7px;
+top:30%;
+
+
+background: #2791C2;
+border-radius: 31px;
+
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 20px;
+/* identical to box height, or 133% */
+cursor:pointer;
+
+/* White */
+
+color: #FFFFFF;
+
+}
+
+
+.login-button:hover{
+    background: #04a3f9;
+}
+
+.register{
+    display: flex;
+    position: absolute;
+   color: white;
+   top:55%;
+   left:30%;
+   font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 32px;
+}
+.register-now{
+    padding-left: 8px;
+cursor: pointer;
+color:#29B9FC;
+}
+
+
+
+.line1{
+width: 142.12px;
+height: 0px;
+left:44.97px;
+
+
+border: 1px solid #FFFFFF;
+
+}
+
+
+.cut {
+    position: absolute;
+    top: 59.90%;
+}
+
+.or{
+  
+left: 49.53%;
+right: 49.5%;
+bottom: 37.78%;
+top:58.5%;
+color:white;
+}
+.line2{
+   
+width: 142.12px;
+height: 0px;
+left:258.33px;
+
+border: 1px solid #FFFFFF;
+
+}
+
+
+.facebook{
+ 
+    position: absolute;
+    left: 10.58%;
+     top: 65.49%;
+    bottom: 30.65%;
+ 
+
+}
+.facebookLogo{
+    position:absolute;
+    top:67%;
+    left:27.5%;
+}
+
+
+
+.twitter{
+      position: absolute;
+    left: 10.58%;
+      top: 75.49%;
+    bottom: 30.65%;
+  
+}
+
+.twitterLogo{
+    position:absolute;
+    top:76.8%;
+    left:27.5%;
+}
+
+.google{
+
+   
+    position: absolute;
+    left: 10.58%;
+    background-color: transparent;
+    top: 85.49%;
+    bottom: 30.65%;
+ 
+
+}
+
+.googleLogo{
+    position:absolute;
+    top:87%;
+    left:27.5%;
+}
+
+
+.log-btns{
+    color:white;
+    font-family: 'Open Sans';
+    font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 32px;
+    border: 1px solid #FFFFFF;
+    border-radius: 35px;
+    box-sizing: border-box;
+    background-color: transparent;
+    cursor: pointer;
+    width: 358px;
+    height: 46px;
+}
+
+
+
+
+  @media only screen and (max-width: 640px){
+   
+
+body{
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+
+
+.login-form{
+    width: 580px;
+    height: 1024px;
+   left:3.5%
+}
+
+
+.line1{
+
+width: 195.5px;
+height: 0px;
+left:10%;
+top: 56.4%;
+
+
+}
+
+
+
+
+.or{
+left: 48.5%;
+
+top: 55.5%;
+
+}
+.line2{
+width: 195.5px;
+height: 0px;
+left:57%;
+top: 56.4%;
+
+}
+
+.twitterLogo{
+    top:76.2%;
+    left:24%;
+}
+
+.facebookLogo{
+    top:66.2%;
+    left:23.4%;
+}
+
+.googleLogo{
+   
+    top:86.5%;
+    left:24.5%;
+}
+
+.input2{
+
+width: 486px;
+height: 70px;
+left:7%;
+
+}
+
+.input1{
+
+width: 486px;
+height: 70px;
+left:10.2%;
+}
+.ellipse2{
+   display: flex;
+   position: absolute;
+    top:36.5%;
+    left: 84.5%;
+    cursor: pointer;
+    background-color: white;
+    }
+
+    .ellipse{
+    
+        display: none;
+    }
+     
+
+
+
+.login-button{
+    left: 1px;
+    top:30%;
+    width:486px;
+   
+height:70px;
+}
+
+.log-btns{
+font-weight: 700;
+font-size: 24px;
+line-height: 32px;
+   
+    width: 487px;
+    height: 70px;
+}
+
+
+.title{
+    position: relative;
+    left: 5.17%;
+    
+    top: 7.7%;
+    bottom: 70.52%;
+    color:white;
+    width: 585px;
+    height: 88px;
+    
+}
+
+
+.span2{
+    position: absolute;
+    left: 74.8%;
+    
+    top: 34.39%;
+    
+    
+    }
+
+    .remember{
+        left: 11.5%;
+    
+        top: 34.39%;
+    }
+    
+    .register{
+        top:53%;
+        left:37%;
+    }
+
+}
