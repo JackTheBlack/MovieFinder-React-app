@@ -135,6 +135,7 @@ export default function LoginForm(){
         <div className="extra-buttons">
           <div className="remember">
           
+          
             <label>   <input className="rememberMe" type="checkbox" id="rememberMe"   value="Remember me"/>  Remeber Me</label>
           </div>
          <div>
