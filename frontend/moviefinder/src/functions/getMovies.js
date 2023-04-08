@@ -1,20 +1,18 @@
 import env from "react-dotenv";
-
+import { getStars } from "./starts";
 export const getMostPopulars=async()=>{
     
    
+   // window.sessionStorage.setItem("movies",JSON.stringify(response.results)),
+                            //showMostPopular(3)
   
         const options = {
             method: 'GET'
-          
-        }; 
+          } 
        
         await fetch(`${process.env.REACT_APP_MOVIE_FINDER_API}`,options)
             .then(response => response.json())
-            .then(response =>(theMostPopular(response.results[0])
-                           // window.sessionStorage.setItem("movies",JSON.stringify(response.results)),
-                            //showMostPopular(3)
-                            ))
+            .then(response =>(theMostPopular(response.results[0]) ))
             .catch(err => (console.log(err)));
     
     
@@ -32,7 +30,7 @@ export const theMostPopular=(mp)=>{
     banner.style.backgroundImage=`url(${posterPath+mp.backdrop_path})  `;
     let title=document.getElementById("title");
     title.innerText=mp.title;
-  //  getStars("starContainer",mp.vote_average);
+    getStars("starContainer",mp.vote_average);
     overview.innerText=mp.overview;
    // let gendres= movieGenre(mp.genre_ids);
    // let gendre=document.getElementById("genre");

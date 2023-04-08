@@ -10,6 +10,12 @@ nav{
 
    
 }
+.user-icon{
+  height: 7vmin;
+  width: 7vmin;
+  pointer-events: none;
+  border-radius: 100%;
+}
 
 .nav-grid{
     display: grid;

@@ -1,10 +1,20 @@
 import {useState, useEffect} from "react";
 import { getMostPopulars } from "../functions/getMovies";
+import { useEffectOnce } from "../customHooks/useEffectOnce";
 import env from "react-dotenv";
+import { removeList } from "../functions/list";
 export default function Banner(){
 
-    useEffect(() => {
-       getMostPopulars();
+
+ 
+
+    useEffectOnce(() => {
+   
+        getMostPopulars();
+        console.log('i firsdsdsde once');
+       
+   
+      
       }, []);
 
 
