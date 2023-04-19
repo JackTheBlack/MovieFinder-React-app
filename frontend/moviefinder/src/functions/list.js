@@ -1,29 +1,33 @@
 import { createModalCard } from "./card"; 
+import { useContext } from "react";
+import AppContext from "../context/contextApi";
+
 
 
 
 
 
 //var listNode=document.getElementById("list");
+
 var dialog=document.getElementById("dialog");
 var cardPath="http://www.themoviedb.org/t/p/w220_and_h330_face/";
 
-export const getMovieList =async(title,setModalShow)=>{
+export const getMovieList =async(title,setModalShow,setSelectedMovie)=>{
   
     const options = {
         method: 'GET'
     }
     await fetch(`${process.env.REACT_APP_SEARCH_MOVIE_API}${title}`,options)
         .then(response => response.json())
-        .then(response =>getList(response.results,setModalShow))
+        .then(response =>getList(response.results,setModalShow,setSelectedMovie))
         .catch(err => (console.log(err)));
 
    
 
 }
-export const getList=(array,setModalShow)=>{
+export const getList=(array,setModalShow,setSelectedMovie)=>{
     var listNode=document.getElementById("list");
-   
+    
    //  listNode.innerHTML=''
     ///// check if the input got more than 3 words////////////////////
     if(array.length>=3){
@@ -41,7 +45,7 @@ export const getList=(array,setModalShow)=>{
             
              title.innerText=array[x].title;           
             title.id=array[x].id;  
-           console.log(title)
+       
             cardPath="http://www.themoviedb.org/t/p/w220_and_h330_face/";
          let card=createModalCard(array[x], cardPath,false);
             card.id=array[x].id;
@@ -51,7 +55,7 @@ export const getList=(array,setModalShow)=>{
             listNode.appendChild(liNode);
         
            liNode.addEventListener("click",function(){
-            selected(listNode,x,setModalShow)
+            selected(array,listNode,x,setModalShow,setSelectedMovie)
            })      
            
 
@@ -62,26 +66,25 @@ export const getList=(array,setModalShow)=>{
 
        
        
-        
-    
+     
     }
+ 
+    
 
 }
 
 
 
-function selected(list,x,setModalShow){
+function selected(array,list,x,setModalShow,setSelectedMovie){
     let allList=list.querySelectorAll("section");
-   setModalShow(true);
-        let id=allList[x].id
-        console.log("id movie:"+id)
-       // bringMovie(id);
-    
-      //  elementoDialog.showModal();
+  
+    setSelectedMovie(array[x]);
+    let dialog=document.getElementById("dialog");
+  
+    dialog.showModal();
+   
+
       
-      //  dialog.showModal();
-      //  dialog.style.display="";
-    //    removeList();
     
 }
 

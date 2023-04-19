@@ -10,8 +10,9 @@ import SearchMovieList from "./searchList";
 
 export default function Navbar(){
 
-    const {modalShow,setModalShow}=useContext(AppContext);
+    const {modalShow,setModalShow,selectedMovie,setSelectedMovie}=useContext(AppContext);
     const [inputSearch,setInputSearch]=useState()
+    const [movieList,setMovieList]=useState()
     const navigate=useNavigate();
     
   
@@ -24,14 +25,19 @@ export default function Navbar(){
    const handleInputOnchange=(event)=>{
     
     setInputSearch(event.target.value);
+   
 
     if (inputSearch!==undefined){
         if(inputSearch.length>=3){
-         
-            getMovieList(inputSearch,setModalShow);
+           
+
+            console.log(selectedMovie)
+          removeList()
+            getMovieList(event.target.value,setModalShow,setSelectedMovie);
+            
         }else{
             removeList();
-            console.log(modalShow)
+        
         }
         
     }
@@ -67,7 +73,7 @@ export default function Navbar(){
                     <span onClick={handleLogOut} id="logout" >LOG OUT</span>
                 </div>
                <div>
-                  <img className="user-icon" src={userIMG} alt="user" />
+                  <img className="user-icon" src="https://avatars.githubusercontent.com/u/12437465?v=4" alt="user" />
                </div>
             </div>      
             

@@ -8,11 +8,14 @@ import {
 import Home from "./pages/Home";
 import { removeList } from "./functions/list";
 import AppContext from "./context/contextApi";
+import ModalContext from "./context/ModalContextApi";
 
 
 function App() {
-
+  const [mostPopularMovie,setMostPopularMovie]=useState();
+  const [selectedMovie,setSelectedMovie]=useState('');
   const [modalShow, setModalShow] = useState(false);
+  const [movies,setMovies]=useState();
   const router = createBrowserRouter([
     {
       path: "/login",
@@ -25,12 +28,14 @@ function App() {
   ]);
 
   return (
-    <AppContext.Provider value={{modalShow,setModalShow}}>
+    <AppContext.Provider value={{modalShow,setModalShow,selectedMovie,setSelectedMovie, movies,setMovies,mostPopularMovie,setMostPopularMovie}}>
+
 
    
-    <div onClick={removeList} className="App">
+    <div className="App">
    <RouterProvider router={router} />
     </div>
+
     </AppContext.Provider>
   );
 }

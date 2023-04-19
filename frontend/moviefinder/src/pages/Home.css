@@ -168,8 +168,8 @@ color: #BCBCBC;
 }
 
 .banner-shadow{
-    height: 549.5px;
- 
+    width: 100%;
+    height: 100%;
 background: linear-gradient(90deg, #080E20 0%, rgba(29, 29, 29, 0) 65.46%);
 
 }
@@ -187,10 +187,12 @@ background: linear-gradient(90deg, #080E20 0%, rgba(29, 29, 29, 0) 65.46%);
 }
 
 .content{
-    padding-bottom: 2%;
-    display: grid;
-    grid-template-columns: auto ;
-    grid-row-gap: 10px;
+  position:relative;
+  padding-left: 10%;
+    padding-top: 10%;
+    display:flex;
+    flex-direction: column;
+  gap:1em
 
 }
 
@@ -226,10 +228,8 @@ background: linear-gradient(90deg, #080E20 0%, rgba(29, 29, 29, 0) 65.46%);
 
 
 
-.title{
-   position: relative;
-   margin-left: -75px; 
-  width: 60.9%;
+.titleBanner{
+ 
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 700;
@@ -266,6 +266,12 @@ color: #FFFFFF;
  
 .watch{
     padding-top: 4.5%;
+}
+
+.modal-btn{
+width: 20%;
+
+
 }
 
 
@@ -459,7 +465,7 @@ background-color: white;
  
 .modal{
  
-  width: 1240px;
+  width: 80%;
   height: 839px;
   background-color:#111111;
   border-radius: 20px;
@@ -474,7 +480,7 @@ background-color: white;
   left:0px;
   top:0px;
   width: 100%;
-  height: 400px;
+  height: 440px;
  
 }
 
@@ -484,8 +490,14 @@ background-color: white;
   cursor: pointer;
 }
 
+.modal-banner-shadow{
+  background: linear-gradient(359.32deg, #111111 0.53%, rgba(17, 17, 17, 0) 114.52%);
+height: 100%;
+}
+
 .modal-banner-content{
-  padding-top: 21%;
+
+padding-top: 15%;
   display: grid;
   grid-template-rows: 30% 30%;
   row-gap:40px ;
@@ -520,6 +532,11 @@ background-color: white;
 }
 
 .modal-title{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 56px;
+line-height: 64px;
   color: #29B9FC;
 
 }

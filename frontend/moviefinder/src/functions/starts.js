@@ -1,7 +1,7 @@
 const getStars=(type,votes)=>{
     let stars=votes/2;
     let starsContainer=document.getElementById(type);
-  
+    starsContainer.style.display="flex"
     for(let x=0;x<=stars;x++){
         
         let star=document.createElement("DIV");
