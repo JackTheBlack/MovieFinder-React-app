@@ -1,7 +1,7 @@
 import React ,{useEffect,useState} from "react";
 import './Login.css';
 import movieFinder from "../images/MOVIEfinder.png"
-import LoginForm from "../components/loginForm";
+import LoginForm from "../components/LoginForm";
 import { Helmet } from "react-helmet";
 //import { getActiveElement } from "@testing-library/user-event/dist/utils";
 export default function Login(){

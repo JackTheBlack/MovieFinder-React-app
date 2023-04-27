@@ -37,4 +37,41 @@ genreSection.innerText=result[0];
 
 }
 
-export { getGenres,movieGenre}
+
+
+export const  Genres=async({genresId})=>{
+
+
+    const options = {
+        method: 'GET'
+      
+    }; 
+
+    let genres;
+    await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=0b594805a17dec4e8de3882c93646258`,options)
+    .then(response => response.json())
+    .then(response =>genres=response.genres)
+    .catch(err => (console.log(err)+"dsdsdsds"));
+
+
+
+ let result=[]
+
+    for(let x=0;x<=genresId.length-1;x++){
+        for(let y=0;y<=genres.length-1;y++){
+            if (genresId[x]===genres[y].id){
+                result.push(genres[y].name)
+
+            }
+        }
+    }
+
+    return(<>
+            {result[0]}
+        </>)
+        
+
+}
+
+
+export {  getGenres,movieGenre}

@@ -1,9 +1,8 @@
-
-import { useRef,useContext } from "react";
+import { useContext } from "react";
 import AppContext from "../context/contextApi";
 
-export default function Card({item}){
-    const cardPath="https://www.themoviedb.org/t/p/w780/";
+export default function Card220({item}){
+    const cardPath="http://www.themoviedb.org/t/p/w220_and_h330_face/";
     
     
   const {setModalShow,modalShow,selectedMovie,setSelectedMovie}=useContext(AppContext);
@@ -31,8 +30,9 @@ export default function Card({item}){
 
 const cardStyle ={
     backgroundImage:`url(${cardPath+item.backdrop_path})`,
-    width:"710px",
-    height:"310px",
+    backgroundSize:"cover",
+    width:"220px",
+    height:"330px",
     display:"flex",
     flexDirection:"row",
     cursor:"pointer",
@@ -44,7 +44,7 @@ const cardInfo={
     display:"flex",
     flexDirection:"column",
     paddingBottom:"55px",
-    marginTop:"12rem",
+    marginTop:"98%",
     gap:"10px",
     lineHeight: "20px",
     fontStyle: "normal",
@@ -68,7 +68,7 @@ return(
                         {getStars()}
                     </div>
                     <div>
-                    <span>{item.overview.slice(0,150)+"..."} </span>
+                    <span>{item.overview.slice(0,70)+"..."} </span>
                     </div>
                 
             </article>

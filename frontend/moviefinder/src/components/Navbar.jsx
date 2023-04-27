@@ -5,7 +5,7 @@ import userIMG from "../images/user-icon.jpg";
 import { useNavigate } from "react-router-dom";
 import { getMovieList, removeList } from "../functions/list";
 import AppContext from "../context/contextApi";
-import SearchMovieList from "./searchList";
+import SearchMovieList from "./SearchList";
 
 
 export default function Navbar(){

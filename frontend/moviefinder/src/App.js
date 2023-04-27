@@ -6,9 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
-import { removeList } from "./functions/list";
+
 import AppContext from "./context/contextApi";
-import ModalContext from "./context/ModalContextApi";
+
 
 
 function App() {

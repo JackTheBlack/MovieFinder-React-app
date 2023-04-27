@@ -16,7 +16,7 @@ export default function LoginForm(){
        
 
       const passwordRef=useRef();
-      const mailInput=document.getElementById("email");
+      const mailInput=useRef();
       ///////////////////***Messages Hide States *//////////////////////////////////   
       const [emailErrorHide,setEmailErrorHide]=useState(true);
       const [passwordErrorHide,setPasswordErrorHide]=useState(true);
@@ -44,6 +44,7 @@ export default function LoginForm(){
       
     
       if(!validatePassword(passwordRef.current.value)){
+      
         let passwordError=document.getElementById("error-password");
       
        passwordRef.current.style.border="3px solid rgb(232, 11, 11)";    
@@ -52,20 +53,22 @@ export default function LoginForm(){
       }else{
         passwordRef.current.style.border="3px solid ";   
         setPasswordErrorHide(true);
-        if (!validateMail(mailInput.value)){
+        if (!validateMail(mailInput.current.value)){
           
        
             setEmailErrorHide(false);
-            mailInput.style.border="3px solid rgb(232, 11, 11)";    
+            mailInput.current.style.border="3px solid rgb(232, 11, 11)";    
       
         }else{
             setEmailErrorHide(true);
-            mailInput.style.border="3px solid ";
+            mailInput.current.style.border="3px solid ";
 
         }
       }
 
-       
+       if((validatePassword(passwordRef.current.value)&&(validatePassword(passwordRef.current.value)))){
+        handleLogin();
+       }
   
   
    }
@@ -84,9 +87,7 @@ export default function LoginForm(){
         method: 'POST',
         body: encodedParams
     };
-  
-
-       
+   
         await fetch(`${process.env.REACT_APP_LOGIN_REQUEST}`, options)
         .then(response => response.json())
         .then(response =>navigate("/"))
@@ -115,9 +116,9 @@ export default function LoginForm(){
       {/* esto es un comentario*/ }
 
        <div className="inputs">
-        <input id="email" onChange={handleEmail} className="input1" placeholder="Email" type="text" />
+        <input id="email" ref={mailInput} onChange={handleEmail} className="input1" placeholder="Email" type="text" />
         <div className="password">
-        <input id="password" onChange={handlePassword}  className="input2"  placeholder="Password" type={inputType} />
+        <input id="password" ref={passwordRef} onChange={handlePassword}  className="input2"  placeholder="Password" type={inputType} />
       
        <img id="eye2" className="ellipse" onClick={()=>handleEyeOnClick()} src={eye1} alt="icon-eye"  />
        
@@ -144,7 +145,7 @@ export default function LoginForm(){
            
         </div>
         <div className="login">
-            <button  id="login-btn" onClick={handleLogin} className="login-button" >Log in</button>
+            <button  id="login-btn" onClick={validations} className="login-button" >Log in</button>
             <span hidden={passwordErrorHide} id="error-password"> invalid Password  format</span>
             <span hidden={emailErrorHide} id="error-email"> invalid Email format</span>
             <span hidden={loginErrorHide} id="error-response"> Error introducing Email or password </span>
