@@ -105,6 +105,7 @@ return result;
 
 const handleCloseModal=()=>{
   let dialog=document.getElementById("dialog");
+  closeIframe();
   dialog.close();
 }  
   
@@ -135,8 +136,9 @@ const handleWatchTrainer=()=>{
 }
 
 const closeIframe=()=>{
-  
+  iframe.current.src="";
   iframeContainer.current.style.display="none";
+  
 
 }
 
@@ -148,53 +150,48 @@ const closeIframe=()=>{
             <img style={{position:"absolute", transform: "rotate(-90deg)"}} src="../images/cross.png"/>
     </div>  
 
-    <div className="modal-banner" id="modalBanner">
-      <div className="modal-banner-shadow">
+            <div className="modal-banner" id="modalBanner">
+              <div className="modal-banner-shadow">
 
-     
-        <div className="modal-banner-content">
-            <button onClick={handleWatchTrainer} className="action-btn modal-button" id="modalButton">Watch Trailer</button>
-            <span id="modalTitle" className=" modal-title" >{titleModal} </span>
-        </div>
-      </div>
+            
+                <div className="modal-banner-content">
+                    <button onClick={handleWatchTrainer} className="action-btn modal-button" id="modalButton">Watch Trailer</button>
+                    <span id="modalTitle" className=" modal-title" >{titleModal} </span>
+                    <span className="overview modal-overview" id="modalOverview">{overviewModal} </span>
+                </div>
+              </div>
 
 
 </div>
-<div id="iframeContainer" className="iframe-container" >
-<div id="closeFrame" className="close-tab close-frame">
-    <img style={{position:"absolute", transform: "rotate(-185deg"}} src=",./images/cross.png"/>
-    <img style={{position:"absolute", transform: "rotate(-90deg)"}} src="../images/cross.png"/>
-</div>  
 
-<iframe id="iframe">
-</iframe>
-</div>  
-<span className="overview modal-overview" id="modalOverview">{overviewModal} </span>
+
 
 <div  className="movie-information">
-<div className="movie-data" id="movieData">
-        <div>
-                <label> Release Date: </label>
-                <p id="date" >{dateModal} </p>
-                <label >Genre: </label>
-                <p ref={genero} id="genero" className="gender">{genreModal} </p>
-        </div>
-        <div>
-            <label> Original Language: </label>
-            <p ref={languaje} id="languaje" > {languageModal} </p>
-            <p>Popularity</p>
-            <p  id="popularity">{popularityModal} </p>
-        </div>
+            <div className="movie-data" id="movieData">
+                    <div>
+                            <label> Release Date: </label>
+                            <p id="date" >{dateModal} </p>
+                            <label >Genre: </label>
+                            <p ref={genero} id="genero" className="gender">{genreModal} </p>
+                    </div>
+                    <div>
+                        <label> Original Language: </label>
+                        <p ref={languaje} id="languaje" > {languageModal} </p>
+                        <p>Popularity</p>
+                        <p  id="popularity">{popularityModal} </p>
+                    </div>
+            </div>
+
+            <div className="related-movies" id="relatedMovies">
+                <span  >Similar Movies</span>
+                  <div id="cardModalContainer" className="card-modal-container">
+                    
+                  </div>
+            </div>
+
 </div>
 
-<div className="related-movies" id="relatedMovies">
-    <span  >Similar Movies</span>
-      <div id="cardModalContainer" className="card-modal-container">
-         
-      </div>
-</div>
 
-</div>
 <div id="iframeContainer" ref={iframeContainer}  className="iframe-container" >
             <div id="closeFrame" onClick={closeIframe} className="close-tab close-frame">
                 <img style={{position:"absolute", transform:" rotate(-185deg)"}} src=",./images/cross.png"/>
@@ -206,6 +203,17 @@ const closeIframe=()=>{
             </iframe>
          </div>  
 
+
+
+         <div id="iframeContainer" className="iframe-container" >
+<div id="closeFrame" className="close-tab close-frame">
+    <img style={{position:"absolute", transform: "rotate(-185deg"}} src=",./images/cross.png"/>
+    <img style={{position:"absolute", transform: "rotate(-90deg)"}} src="../images/cross.png"/>
+</div>  
+
+<iframe id="iframe">
+</iframe>
+</div>  
 </dialog> 
 
   );

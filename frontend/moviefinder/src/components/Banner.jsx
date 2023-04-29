@@ -26,7 +26,7 @@ export default function Banner(){
         
          await fetch(`${process.env.REACT_APP_MOVIE_FINDER_API}`,options)
              .then(response => response.json())
-             .then(response =>(title.current.value=(response.results[0]),setMovies(response.results[0]) ))
+             .then(response =>(console.log(movies),setMovies(response.results[0]) ))
              .catch(err => (console.log(err)));
      
      }catch(err){
@@ -39,11 +39,7 @@ export default function Banner(){
 
 
 
-    useEffectOnce(() => {
-
-        getMostPopulars(setMovies);
-        
-      });
+   
 
       
       const handleClick=()=>{
@@ -53,6 +49,10 @@ export default function Banner(){
      
       }
 
+
+useEffectOnce(()=>{
+  getMovie()
+})
 
     return(
         
@@ -73,7 +73,7 @@ export default function Banner(){
 
                 
                     <div  ref={title} id="title" className="titleBanner">
-                       
+                  
                     </div>
                 
                 

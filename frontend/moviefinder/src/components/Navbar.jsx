@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getMovieList, removeList } from "../functions/list";
 import AppContext from "../context/contextApi";
 import SearchMovieList from "./SearchList";
+import { constants } from "../consts/Consts";
 
 
 export default function Navbar(){
@@ -48,7 +49,7 @@ export default function Navbar(){
 
     const handleLogOut=()=>{
 
-        navigate("/login");
+        navigate(constants.PAGE.LOGIN);
     }
 
 

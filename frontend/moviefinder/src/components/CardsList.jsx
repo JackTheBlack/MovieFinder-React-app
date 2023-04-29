@@ -1,13 +1,19 @@
-import { useState } from "react"
+import { useState,useEffect,useContext } from "react"
 import Card from "./Card780";
 import Card220 from "./Card220";
+import AppContext from "../context/contextApi";
+import rectangle1 from "../images/rectangle1.png";
+import rectangle2 from "../images/rectangle2.png";
+
 
 export default function CardsList() {
 
     
-    const [threeMovies,setThreeMovies]=useState(JSON.parse(localStorage.getItem('movies')).slice(1,4));
-  
+    const [threeMovies,setThreeMovies]=useState();
+    const[loaded,setLoaded]=useState(false);
 
+  
+    const {movies}=useContext(AppContext)
     
    const style1={
     display:"flex",
@@ -49,11 +55,55 @@ const handleOnclick=()=>{
   }
 }
 
+const handleColumns=()=>{
+  setView(style2);
+}
+
+const handleRows=()=>{
+  setView(style1);
+}
+
+useEffect(()=>{
+if((localStorage.getItem('movies')!==null)&&(!loaded)){
+  setLoaded(true)
+ setTimeout(
+  setThreeMovies( JSON.parse(localStorage.getItem('movies')).slice(1,4))
+ ,2000)
+}
+
+
+
+})
+
 
     return(<>
-          <button onClick={handleOnclick}>hola </button>
 
-   {JSON.stringify(view)===JSON.stringify(style1)?
+<div className="most-watched-grid">
+        <div className="most-watched-grid item1">
+            Most Watched
+        </div>  
+     
+        <div className="most-watched-grid item2">
+           <div onClick={handleColumns} className="buttons-columns" alt="columns" id="columns">
+                <img className="rectangle" src={rectangle2} alt="columns"/>
+                <img className="rectangle"  src={rectangle2} alt="columns"/>
+                <img className="rectangle"  src={rectangle2} alt="columns"/>
+           </div>
+           <div onClick={handleRows} id="rows"alt="rows">
+                <img src={rectangle1} alt="rows"/>
+            </div>
+
+        </div>  
+
+      
+   
+    </div>
+          
+    
+{threeMovies===undefined?  <></>:
+
+<>
+{JSON.stringify(view)===JSON.stringify(style1)?
    
    
    <>
@@ -84,6 +134,9 @@ const handleOnclick=()=>{
    </> }
       
 
+
+</> }
+ 
        
     </>
 
