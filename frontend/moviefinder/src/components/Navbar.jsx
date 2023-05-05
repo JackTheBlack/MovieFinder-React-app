@@ -74,7 +74,7 @@ export default function Navbar(){
                     <span onClick={handleLogOut} id="logout" >LOG OUT</span>
                 </div>
                <div>
-                  <img className="user-icon" src="https://avatars.githubusercontent.com/u/12437465?v=4" alt="user" />
+                  <img className="user-icon" src={JSON.parse(window.localStorage.getItem("accessToken")).user.user_img} alt="user" />
                </div>
             </div>      
             

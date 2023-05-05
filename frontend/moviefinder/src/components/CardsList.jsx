@@ -42,18 +42,6 @@ export default function CardsList() {
       
 
 
-const handleOnclick=()=>{
-  console.log(style1)
-  if(JSON.stringify(view)===JSON.stringify(style1)){
-    console.log( "sdsdsdsview")
-    setView(style2);
-
-   
-  }else{
-    setView(style1);
-    console.log(view)
-  }
-}
 
 const handleColumns=()=>{
   setView(style2);

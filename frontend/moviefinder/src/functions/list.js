@@ -42,7 +42,7 @@ export const getList=(array,setModalShow,setSelectedMovie)=>{
             title.style.marginTop="30px";
             title.style.fontSize="14px";
             title.style.marginLeft="2%";
-            
+            title.style.lineHeight="1em"
              title.innerText=array[x].title;           
             title.id=array[x].id;  
        

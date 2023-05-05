@@ -11,7 +11,7 @@ const  getGenres=async(genresId)=>{
     await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=0b594805a17dec4e8de3882c93646258`,options)
     .then(response => response.json())
     .then(response =>movieGenre(genresId,response.genres))
-    .catch(err => (console.log(err)+"dsdsdsds"));
+    .catch(err => (console.log(err)));
 
 }
 
@@ -48,10 +48,11 @@ export const  Genres=async({genresId})=>{
     }; 
 
     let genres;
-    await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=0b594805a17dec4e8de3882c93646258`,options)
+    await fetch(`
+    https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}language=en-US`,options)
     .then(response => response.json())
     .then(response =>genres=response.genres)
-    .catch(err => (console.log(err)+"dsdsdsds"));
+    .catch(err => (console.log(err)));
 
 
 

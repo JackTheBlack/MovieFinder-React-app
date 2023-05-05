@@ -10,9 +10,9 @@ export default function Card({item}){
 
     const votes=item.vote_average/2
 
-    const returnStar=()=>{
+    const returnStar=(key)=>{
         return(
-            <article className="star"></article>
+            <article key={key} className="star"></article>
         )
     }
 
@@ -22,13 +22,12 @@ export default function Card({item}){
        const stars=[]
      
         for(let x=0;x<=votes;x++){
-            stars.push(returnStar());
+            stars.push(returnStar(x));
         }
         
         return <section style={{display:"flex"}}>{stars} </section>
     }
    
-
 const cardStyle ={
     backgroundImage:`url(${cardPath+item.backdrop_path})`,
     backgroundSize:"cover",
@@ -66,7 +65,7 @@ return(
             <article style={cardInfo}>
                     <span>{item.title} </span>
                     <div className="star-container">
-                        {getStars()}
+                        { getStars("starContainer",item.vote_average)}
                     </div>
                     <div>
                     <span>{item.overview.slice(0,150)+"..."} </span>

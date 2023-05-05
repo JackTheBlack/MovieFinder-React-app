@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
+import { SimilarMovies } from './SimilarMovies';
 import { Genres, getGenres } from '../functions/genres';
 import  {useEffect,useContext,useRef,useState} from "react"
 import AppContext from '../context/contextApi';
 import { formatDate } from '../functions/formatDate';
 import { bringVideos } from '../functions/videos';
+import { constants } from '../consts/Consts';
 
 export default function MovieDetails() {
 
@@ -18,6 +20,7 @@ const iframeContainer=useRef(null);
   const[overviewModal,SetOverviewModal]=useState();
   const[dateModal,setDateModal]=useState();
   const [genreModal,setGenreModal]=useState();
+  const [id,setId]=useState(null);
 
 
  const{selectedMovie,setSelectedMovie}=useContext(AppContext)
@@ -32,14 +35,16 @@ const iframeContainer=useRef(null);
 useEffect(() => {
 
 
-  if (selectedMovie!==undefined){
+  if (selectedMovie!==""){
+  console.log(selectedMovie)
     setVideoArray(bringVideos(selectedMovie.id));
+    setId(selectedMovie.id);
     setDateModal(formatDate(selectedMovie.release_date));
     SetOverviewModal(selectedMovie.overview);
 setLanguageModal(movieLanguage()) ; 
 setGenreModal(movieGenre);
    setTitleModal(selectedMovie.title);
-   setPopularityModal(selectedMovie.vote_average/2+"/5")
+   setPopularityModal(selectedMovie.vote_average/2+"/5") 
   }
  
   let banner =document.getElementById("modalBanner"); 
@@ -75,7 +80,6 @@ return result[0];
 
 const movieLanguage=()=>{  
   let result;
-  console.log("original languaje :"+selectedMovie.original_language)
  try{
 
     for(let y=0;y<=languages.length-1;y++){
@@ -126,7 +130,7 @@ const handleWatchTrainer=()=>{
               i=videoArray.length;
              console.log(trailerId);
 
-              iframe.current.src="https://www.youtube.com/embed/"+trailerId;
+              iframe.current.src=constants.YOUTUBE+trailerId;
               iframeContainer.current.style.display="flex"
           }
 
@@ -141,6 +145,9 @@ const closeIframe=()=>{
   
 
 }
+
+
+
 
 
   return (
@@ -184,9 +191,11 @@ const closeIframe=()=>{
 
             <div className="related-movies" id="relatedMovies">
                 <span  >Similar Movies</span>
-                  <div id="cardModalContainer" className="card-modal-container">
-                    
-                  </div>
+                {id!==null?
+                <>  <SimilarMovies id={id}/> </>
+                :
+                <></> }
+               
             </div>
 
 </div>

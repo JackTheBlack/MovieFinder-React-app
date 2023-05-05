@@ -11,5 +11,6 @@ export const constants={
     PAGE:{
         LOGIN:"/login",
         INDEX:"/"
-    }
+    },
+    YOUTUBE:"https://www.youtube.com/embed/",
 }

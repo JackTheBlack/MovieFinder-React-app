@@ -90,7 +90,7 @@ export default function LoginForm(){
    
         await fetch(`${process.env.REACT_APP_LOGIN_REQUEST}`, options)
         .then(response => response.json())
-        .then(response =>navigate("/"))
+        .then(response =>(console.log(response),window.localStorage.setItem("accessToken",JSON.stringify(response)),navigate("/")))
         .catch(err => console.log(err));
     
     
