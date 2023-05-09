@@ -16,6 +16,17 @@ export default function Card220({item}){
     }
 
 
+    const title=()=>{
+
+        let x;
+        if (item.title.length>25){
+            x=item.title.slice(0,22)+"...";
+        }else{
+            x=item.title;
+        }
+
+        return x;
+    }
 
     const getStars=()=>{
        const stars=[]
@@ -63,7 +74,7 @@ return(
     <div  onClick={handleClick} style={cardStyle}>
         <div style={{width:"100%",background: "linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, #010101 100%)"}}>
             <article style={cardInfo}>
-                    <span>{item.title} </span>
+                    <span>{title()} </span>
                     <div className="star-container">
                         {getStars("starContainer",item.vote_average)}
                     </div>
