@@ -316,12 +316,9 @@ border: 1px solid #FFFFFF;
 
 }
 .facebookLogo{
-    position:absolute;
-    top:67%;
-    left:27.5%;
-}
-
-
+    position:relative;
+    top:9px;
+    left:-7%;}
 
 .twitter{
       position: absolute;
@@ -386,9 +383,10 @@ body{
 
 
 .login-form{
-    width: 580px;
+    width: 90%;
     height: 1024px;
-   left:3.5%
+   justify-content: center;
+   justify-items: center;
 }
 
 
@@ -435,43 +433,48 @@ top: 56.4%;
     left:24.5%;
 }
 
+.password{
+position: absolute;
+width: 90%;
+}
+
 .input2{
 
-width: 486px;
+width: 90%;
 height: 70px;
-left:7%;
+
 
 }
 
 .input1{
 
-width: 486px;
+width: 81.5%;
 height: 70px;
 left:10.2%;
 }
-.ellipse2{
-   display: flex;
+.ellipse{
+  
    position: absolute;
-    top:36.5%;
-    left: 84.5%;
+    left: 82%;
+    width: 25px;
     cursor: pointer;
     background-color: white;
+    z-index: 1;
     }
 
-    .ellipse{
-    
-        display: none;
-    }
-     
+
+
+.login{
+    width: 100%;
+}
 
 
 
 .login-button{
     left: 1px;
     top:30%;
-    width:486px;
-   
-height:70px;
+    width:84%;
+    height:70px;
 }
 
 .log-btns{
@@ -486,13 +489,14 @@ line-height: 32px;
 
 .title{
     position: relative;
-    left: 5.17%;
-    
+   
+   
+   
     top: 7.7%;
     bottom: 70.52%;
     color:white;
-    width: 585px;
-    height: 88px;
+    width: 95%;
+   
     
 }
 
@@ -516,5 +520,42 @@ line-height: 32px;
         top:53%;
         left:37%;
     }
+
+    .facebook{
+        width: 80%;
+       
+        
+        left: 10.58%;
+         top: 65.49%;
+        bottom: 30.65%;
+
+     
+    
+    }
+
+    
+    .facebookLogo{
+      position: relative;
+ top: 8px;
+      left:1px;
+      
+    }
+
+    .google{
+        width: 80%;
+       
+        
+        left: 10.58%;
+         top: 85.49%;
+        bottom: 30.65%;   
+    }
+
+
+    .googleLogo{
+        position: relative;
+        top: 8px;
+             left:1px;        
+    }
+    
 
 }

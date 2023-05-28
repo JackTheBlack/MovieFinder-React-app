@@ -1,13 +1,15 @@
+
 import { getMostPopulars } from "../functions/getMovies";
 import { useEffectOnce } from "../customHooks/useEffectOnce";
-import { useContext,useRef } from "react";
+import { useContext,useRef, useEffect } from "react";
 import AppContext from "../context/contextApi";
 import { getGenres } from "../functions/genres";
+import { constants } from "../consts/Consts";
 export default function Banner(){
 
 
   
-
+  const banner=useRef();
   const {modalShow,setModalShow,movies,setMovies,setSelectedMovie}=useContext(AppContext);
  
   const title=useRef();
@@ -52,11 +54,60 @@ export default function Banner(){
 
 useEffectOnce(()=>{
   getMovie()
+ 
 })
+
+
+const changebanner=()=>{
+
+  
+    try{
+      if(window.innerWidth<641){
+       
+        banner.current.style.backgroundImage="url(http://www.themoviedb.org/t/p/original"+movies.poster_path+")";
+      
+  
+      }
+   
+     
+  
+      if(window.innerWidth>640){
+      
+        banner.current.style.backgroundImage="url(http://www.themoviedb.org/t/p/original"+movies.backdrop_path+")";
+      
+      } 
+    }catch(error){
+
+    }
+  
+
+  
+
+
+
+
+
+}
+
+useEffect(()=>{
+  if(movies!==undefined){
+    
+    if(window.innerWidth<641){
+     
+      banner.current.style.backgroundImage="url(http://www.themoviedb.org/t/p/original"+movies.poster_path+")";
+     
+
+    }
+  }
+  window.addEventListener("resize",changebanner)
+  })
+ 
+  
+ 
 
     return(
         
-        <div id="banner" className="banner">
+        <div id="banner" ref={banner} className="banner">
         <div  id="bannerShadow" className="banner-shadow">
         
 

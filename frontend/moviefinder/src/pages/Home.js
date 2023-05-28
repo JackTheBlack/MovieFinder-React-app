@@ -66,7 +66,7 @@ useEffect(() => {
   
 
   useEffectOnce(() => {
-if((window.localStorage.getItem("accessToken")===null)||(window.localStorage.getItem("accessToken")=="Cannot find user")){
+if((window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)){
     navigate("/login")
 }
     getMostPopulars(setMovies);
@@ -76,7 +76,7 @@ if((window.localStorage.getItem("accessToken")===null)||(window.localStorage.get
 
     return(<>
 
-{(window.localStorage.getItem("accessToken")===null)||(window.localStorage.getItem("accessToken")==="Cannot find user")?
+{(window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)?
 <>
  
 </>
@@ -89,11 +89,17 @@ if((window.localStorage.getItem("accessToken")===null)||(window.localStorage.get
         <header >
         <Navbar />
         </header>
-       <Banner/>
+        
+        <Banner/>
        <MovieDetails/>
  
-                      
+        
+
+  <div style={{position:"relative",justifyContent:"center",alignItems:"center"}}>
+                        
   <CardsList/>
+    </div>    
+  
 
       
       

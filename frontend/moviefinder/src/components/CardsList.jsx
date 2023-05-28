@@ -65,7 +65,7 @@ const setThreeMovies=(movies)=>{
     setThree( [...three,...items.slice(index,index+3)])
   }
   
-  console.log("page: ",page," response: ",movies)
+  //console.log("page: ",page," response: ",movies)
   setIndex(index+3);
   //incremento el index en 3
 
@@ -98,10 +98,10 @@ const handleScroll = () => {
 //si la diferencia entre el scroll to anterior y el actuas es mayor a 56 entonces vuelvo
 // hACER UN LLAMADO A la proxima pagina
 if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
- console.log("inner hight: ",window.innerHeight)
- console.log("old scroll top: ",scroolTop)
- console.log("scroll Top: ", document.documentElement.scrollTop)
- console.log("offset hight: ",document.documentElement.offsetHeight)
+ //console.log("inner hight: ",window.innerHeight)
+ //console.log("old scroll top: ",scroolTop)
+ //console.log("scroll Top: ", document.documentElement.scrollTop)
+ //console.log("offset hight: ",document.documentElement.offsetHeight)
  
  if ((document.documentElement.scrollTop-scroolTop )>76){
   fetchData();
@@ -134,6 +134,8 @@ return () => window.removeEventListener('scroll', handleScroll);
 
 
     return(<>
+<div className="most-watched-grid-container">
+
 
 <div className="most-watched-grid">
         <div className="most-watched-grid item1">
@@ -178,7 +180,7 @@ return () => window.removeEventListener('scroll', handleScroll);
      <div  className={view}>
          { three.map((item,index)=>
        
-          <div key={index} style={{marginTop:"2em"}}>
+          <div key={index} className="cardElement" style={{marginTop:"2em" }}>
             <Card220 key={index}  item={item}/> 
         
           </div>
@@ -196,7 +198,8 @@ return () => window.removeEventListener('scroll', handleScroll);
 
 </> }
  
-       
+</div>
+
     </>
 
     )

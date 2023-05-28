@@ -6,10 +6,11 @@ import AppContext from '../context/contextApi';
 import { formatDate } from '../functions/formatDate';
 import { bringVideos } from '../functions/videos';
 import { constants } from '../consts/Consts';
-
+import cross from "../images/cross.png"
 export default function MovieDetails() {
 
 
+  const banner=useRef(null)
  const genero=useRef(null);
 const iframe=useRef(null);
 const iframeContainer=useRef(null);
@@ -131,6 +132,7 @@ const handleWatchTrainer=()=>{
              console.log(trailerId);
 
               iframe.current.src=constants.YOUTUBE+trailerId;
+              banner.current.style.display="none";
               iframeContainer.current.style.display="flex"
           }
 
@@ -140,8 +142,10 @@ const handleWatchTrainer=()=>{
 }
 
 const closeIframe=()=>{
+  banner.current.style.display="flex";
   iframe.current.src="";
   iframeContainer.current.style.display="none";
+  
   
 
 }
@@ -153,11 +157,23 @@ const closeIframe=()=>{
   return (
     <dialog className="modal" id="dialog">
     <div id="close" onClick={handleCloseModal} className="close-tab">
-            <img style={{position:"absolute", transform: "rotate(-185deg"}} src="../images/cross.png"/>
-            <img style={{position:"absolute", transform: "rotate(-90deg)"}} src="../images/cross.png"/>
+            <img style={{position:"absolute", transform: "rotate(-185deg"}} src={cross} />
+            <img style={{position:"absolute", transform: "rotate(-90deg)"}} src={cross} />
     </div>  
 
-            <div className="modal-banner" id="modalBanner">
+
+      
+<div id="iframeContainer" ref={iframeContainer}  className="iframe-container" >
+            <div id="closeFrame" onClick={closeIframe} className="close-tab close-frame">
+                <img style={{position:"absolute", transform:" rotate(-185deg)"}} src={cross} />
+                <img style={{position:"absolute", transform:" rotate(-90deg)"}} src={cross} />
+           </div>  
+         
+            <iframe ref={iframe} id="iframe" style={{width:"100%",height:"400px"}}
+          >
+            </iframe>
+         </div>  
+            <div className="modal-banner" ref={banner} id="modalBanner">
               <div className="modal-banner-shadow">
 
             
@@ -201,28 +217,9 @@ const closeIframe=()=>{
 </div>
 
 
-<div id="iframeContainer" ref={iframeContainer}  className="iframe-container" >
-            <div id="closeFrame" onClick={closeIframe} className="close-tab close-frame">
-                <img style={{position:"absolute", transform:" rotate(-185deg)"}} src=",./images/cross.png"/>
-                <img style={{position:"absolute", transform:" rotate(-90deg)"}} src="../images/cross.png"/>
-           </div>  
-         
-            <iframe ref={iframe} id="iframe"
-          >
-            </iframe>
-         </div>  
 
 
 
-         <div id="iframeContainer" className="iframe-container" >
-<div id="closeFrame" className="close-tab close-frame">
-    <img style={{position:"absolute", transform: "rotate(-185deg"}} src=",./images/cross.png"/>
-    <img style={{position:"absolute", transform: "rotate(-90deg)"}} src="../images/cross.png"/>
-</div>  
-
-<iframe id="iframe">
-</iframe>
-</div>  
 </dialog> 
 
   );

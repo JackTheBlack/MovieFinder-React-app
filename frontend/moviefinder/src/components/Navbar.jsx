@@ -48,7 +48,8 @@ export default function Navbar(){
  
 
     const handleLogOut=()=>{
-
+        window.localStorage.removeItem("accessToken");
+        window.sessionStorage.removeItem("accessToken");
         navigate(constants.PAGE.LOGIN);
     }
 
@@ -61,21 +62,29 @@ export default function Navbar(){
         <nav  id="nav">
         <div className="nav-grid">
            <div className="img1" >
-           <img className="movie-finder" src={movieFinder}  alt="userPin"/>
-           </div> 
-           <div>
+                <img className="movie-finder" src={movieFinder}  alt="userPin"/>
+                </div> 
+           <div >
             <input id="search" name="search" onChange={handleInputOnchange} placeholder="Search movies..." type="text" />
         
-           <SearchMovieList/>
+                  <SearchMovieList/>
            </div>
            
-            <div id="logPin" className="log">
+            <div  className="log">
                 <div>
-                    <span onClick={handleLogOut} id="logout" >LOG OUT</span>
+                    <div className="logText" onClick={handleLogOut} id="logout" >LOG OUT</div>
                 </div>
-               <div>
-                  <img className="user-icon" src={JSON.parse(window.localStorage.getItem("accessToken")).user.user_img} alt="user" />
-               </div>
+               <div className="userIMG">
+                {window.localStorage.getItem("accessToken")!==null?
+                <>
+                    <img className="user-icon" src={JSON.parse(window.localStorage.getItem("accessToken")).user.user_img} alt="user" />
+             
+                </>:
+                <>
+                 <img className="user-icon" src={JSON.parse(window.sessionStorage.getItem("accessToken")).user.user_img} alt="user" />
+             
+                </> }
+                    </div>
             </div>      
             
 

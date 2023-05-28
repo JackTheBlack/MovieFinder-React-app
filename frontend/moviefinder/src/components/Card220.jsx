@@ -43,11 +43,12 @@ const cardStyle ={
     backgroundImage:`url(${cardPath+item.poster_path})`,
     backgroundSize:"cover",
     width:"220px",
-    height:"330px",
-    display:"flex",
-    flexDirection:"row",
-    cursor:"pointer",
-    color:"white",
+  height:"330px",
+  display:"flex",
+  flexDirection:"row",
+  cursor:"pointer",
+  color:"white",
+
     }
 
 const cardInfo={
@@ -71,8 +72,8 @@ const handleClick=()=>{
 }
 
 return(
-    <div  onClick={handleClick} style={cardStyle}>
-        <div style={{width:"100%",background: "linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, #010101 100%)"}}>
+    <div  onClick={handleClick} style={cardStyle} className="card220">
+        <div className="card220Shadow">
             <article style={cardInfo}>
                     <span>{title()} </span>
                     <div className="star-container">

@@ -19,6 +19,7 @@ export default function LoginForm(){
       const mailInput=useRef();
       ///////////////////***Messages Hide States *//////////////////////////////////   
       const [emailErrorHide,setEmailErrorHide]=useState(true);
+      const [persist,setPersist]=useState(false);
       const [passwordErrorHide,setPasswordErrorHide]=useState(true);
       const [loginErrorHide,setLoginErrorHide]=useState(true); 
       const [password,setPassword]=useState(""); 
@@ -40,7 +41,7 @@ export default function LoginForm(){
     }
 
     const validations=()=>{
-
+      setLoginErrorHide(true);
       
     
       if(!validatePassword(passwordRef.current.value)){
@@ -66,13 +67,40 @@ export default function LoginForm(){
         }
       }
 
-       if((validatePassword(passwordRef.current.value)&&(validatePassword(passwordRef.current.value)))){
+       if((validatePassword(passwordRef.current.value)&&(validateMail(mailInput.current.value)))){
         handleLogin();
        }
   
   
    }
   
+
+   const handleResponse=(response)=>{
+
+    if(response.accesToken!==null){
+
+      handlePersist(response);
+      navigate("/");
+    }else{
+      setLoginErrorHide(true);
+    }
+
+   }
+
+   const handlePersist=(response)=>{
+if(persist){
+  window.localStorage.setItem("accessToken",JSON.stringify(response));
+  window.sessionStorage.removeItem("accessToken");
+}else{
+  window.sessionStorage.setItem("accessToken",JSON.stringify(response));
+  window.localStorage.removeItem("accessToken");
+}
+  
+
+
+   }
+
+
 
    const handleLogin=async()=>{
 
@@ -90,7 +118,7 @@ export default function LoginForm(){
    
         await fetch(`${process.env.REACT_APP_LOGIN_REQUEST}`, options)
         .then(response => response.json())
-        .then(response =>(console.log(response),window.localStorage.setItem("accessToken",JSON.stringify(response)),navigate("/")))
+        .then(response =>(console.log(response),handleResponse(response)))
         .catch(err => console.log(err));
     
     
@@ -118,26 +146,16 @@ export default function LoginForm(){
        <div className="inputs">
         <input id="email" ref={mailInput} onChange={handleEmail} className="input1" placeholder="Email" type="text" />
         <div className="password">
-        <input id="password" ref={passwordRef} onChange={handlePassword}  className="input2"  placeholder="Password" type={inputType} />
-      
-       <img id="eye2" className="ellipse" onClick={()=>handleEyeOnClick()} src={eye1} alt="icon-eye"  />
-       
-      
-  {/*   
-     ************** I dont remember what this does************************ 
-  <div hidden={!hidde}>
-
-       <img id="eye" className="ellipse2"  onClick={()=>setHidden(false)} src={eye2} alt="icon-eye" onfocusin="(email.type='teext')"/>
-       </div>
-      */}   
-    </div>     
+           <input id="password" ref={passwordRef} onChange={handlePassword}  className="input2"  placeholder="Password" type={inputType} />
+           <img id="eye2" className="ellipse" onClick={()=>handleEyeOnClick()} src={eye1} alt="icon-eye"  />
+        </div>     
      
  </div>
         <div className="extra-buttons">
           <div className="remember">
           
           
-            <label>   <input className="rememberMe" type="checkbox" id="rememberMe"   value="Remember me"/>  Remeber Me</label>
+            <label>   <input className="rememberMe" type="checkbox" id="rememberMe" onChange={()=>setPersist(!persist)}  value="Remember me"/>  Remeber Me</label>
           </div>
          <div>
           <span className="span2">Forgot your password?</span>
@@ -160,12 +178,12 @@ export default function LoginForm(){
   
     <div className="cut line1"></div> <div className="cut or">or</div> <div className="cut line2"></div>
 
-    <button className="log-btns facebook" >Login with facebook   </button>
-    <img className="facebookLogo" src={facebook}  alt="facebook logo"/>
+    <button className="log-btns facebook" > <img className="facebookLogo" src={facebook}  alt="facebook logo"/> Login with facebook   </button>
+   
     <button className="log-btns twitter" >Login with Twitter  </button>
     <img className="twitterLogo" src={twitter}  alt="twitter logo"/>
-    <button className="log-btns google" >Login with Google   </button>
-    <img className="googleLogo" src={google}  alt="google logo"/>
+    <button className="log-btns google" > <img className="googleLogo" src={google}  alt="google logo"/> Login with Google   </button>
+    
  
 </div>
 
