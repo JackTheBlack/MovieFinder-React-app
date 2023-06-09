@@ -62,7 +62,7 @@ export default function Navbar(){
         <nav  id="nav">
         <div className="nav-grid">
            <div className="img1" >
-                <img className="movie-finder" src={movieFinder}  alt="userPin"/>
+                <img className="movie-finder" src={movieFinder}  alt="movie-finder"/>
                 </div> 
            <div >
             <input id="search" name="search" onChange={handleInputOnchange} placeholder="Search movies..." type="text" />
@@ -70,7 +70,7 @@ export default function Navbar(){
                   <SearchMovieList/>
            </div>
            
-            <div  className="log">
+        {/*    <div  className="log">
                 <div>
                     <div className="logText" onClick={handleLogOut} id="logout" >LOG OUT</div>
                 </div>
@@ -87,10 +87,10 @@ export default function Navbar(){
                     </div>
             </div>      
             
-
+   */}   
         </div>
        
-    
+ 
    
     
       

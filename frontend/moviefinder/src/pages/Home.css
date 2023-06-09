@@ -1,6 +1,7 @@
 body{
     background-color: black;
     background-image: none;
+
 }
 nav{
     
@@ -21,13 +22,13 @@ nav{
     display: grid;
     grid-template-columns: 30% auto 8%;
     padding-top:1% ;
-font-family: 'Montserrat';
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 32px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 32px;
     width:90%;
-padding-left: 5%;    
+    padding-left: 5%;    
 }
 
 
@@ -62,7 +63,7 @@ nav input{
    
 border-radius: 5px;
 height: 41.97px;
-width: 70%;
+width: 380px;
 background: url(../images/loop.png) no-repeat 7px ;
 
 padding-left:30px;
@@ -934,7 +935,7 @@ iframe{
 }
 
 .nav-grid{
-  grid-template-columns: 25% auto 25%;
+  grid-template-columns: auto auto 25%;
 }
  
 

@@ -66,23 +66,23 @@ useEffect(() => {
   
 
   useEffectOnce(() => {
-if((window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)){
+ /* if((window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)){
     navigate("/login")
-}
+}*/
     getMostPopulars(setMovies);
     
   });
 
 
     return(<>
-
+{/*
 {(window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)?
 <>
  
 </>
 :
 <>
-
+    */}
 <div onClick={removeList}>
 
 
@@ -104,7 +104,7 @@ if((window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.g
       
       
         </div>
-</> }
+{/* </>*/ }
 
         </>)
 }
