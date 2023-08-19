@@ -66,7 +66,7 @@ const changebanner=()=>{
        
         banner.current.style.backgroundImage="url(http://www.themoviedb.org/t/p/original"+movies.poster_path+")";
       
-  
+      
       }
    
      
@@ -74,7 +74,7 @@ const changebanner=()=>{
       if(window.innerWidth>640){
       
         banner.current.style.backgroundImage="url(http://www.themoviedb.org/t/p/original"+movies.backdrop_path+")";
-      
+     
       } 
     }catch(error){
 

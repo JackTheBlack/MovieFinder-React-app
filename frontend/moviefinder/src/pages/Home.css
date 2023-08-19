@@ -6,8 +6,8 @@ body{
 nav{
     
     background-color:#2791C2;
-     height:69.95px;
-     width: 100%;
+     height:4rem;
+     width: cover;
 
    
 }
@@ -20,15 +20,16 @@ nav{
 
 .nav-grid{
     display: grid;
-    grid-template-columns: 30% auto 8%;
+    grid-template-columns: auto auto ;
     padding-top:1% ;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
     line-height: 32px;
-    width:90%;
-    padding-left: 5%;    
+  
+   
+      
 }
 
 
@@ -171,7 +172,7 @@ line-height: 32px;
   
     height: 549.5px;
     background-repeat:no-repeat;
-    background-size: cover;
+    background-size: 100%;
 
 }
 
@@ -672,7 +673,14 @@ column-gap: 5px;
 
 @media only screen and (max-width:834px) {
 
+nav{
+  width: 834px;
+}
 
+.banner{
+  width: 834px;
+}
+   
   nav input{
     width:320px;  
   }
@@ -770,7 +778,13 @@ top:87%;
  
  @media only screen and (max-width: 640px){
 
+nav{
+  width: 640px;
+}
 
+.banner{
+  width: 640px;
+}
   
   .log{
    row-gap: 0.10rem;
@@ -778,13 +792,6 @@ top:87%;
  
 
 
-nav{
-  width: 100%;
-}  
-
-.nav-grid{
-  grid-template-columns: auto auto 20%;
-}
 
 
 .log{
@@ -792,7 +799,7 @@ nav{
 }
 
 nav input{
-  width: 50%;
+ width: 50%;
   height: 46px;
 }
 
@@ -831,7 +838,7 @@ font-size: 24px;
   
   
   grid-template-columns: auto;
-  margin-left: 30%;
+  justify-items: center;
 
 }
 
@@ -911,6 +918,14 @@ iframe{
   
  @media only screen and (max-width: 550px){
   
+nav{
+  width: cover;
+}
+
+.banner{
+  width: cover;
+}
+
   .content{
     position:relative;
     padding-left: 10%;
@@ -934,10 +949,6 @@ iframe{
   border-radius: 100%;
 }
 
-.nav-grid{
-  grid-template-columns: auto auto 25%;
-}
- 
 
  
   nav input{
@@ -952,9 +963,10 @@ iframe{
   display: flex;
   flex-direction: column;
  position: relative;
-  
+  justify-content: center;
 text-align: center;
-    width: 95%;
+align-items: center;
+ 
   }
 
 .item2{
