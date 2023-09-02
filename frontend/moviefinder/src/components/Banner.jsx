@@ -45,9 +45,9 @@ export default function Banner(){
 
       
       const handleClick=()=>{
-        let dialog=document.getElementById("dialog");
+      
         setSelectedMovie(movies)
-        dialog.showModal();
+      
      
       }
 
@@ -138,7 +138,7 @@ useEffect(()=>{
                      
 
                     <div className="watch">
-                            <button id="watchButton" onClick={handleClick} className="action-btn watch-button">Watch now </button> 
+                            <button onClick={setSelectedMovie(movies)} id="watchButton"  className="action-btn watch-button"  data-bs-toggle="modal" data-bs-target="#exampleModal"  >Watch now </button> 
                     </div>
               
         </div>

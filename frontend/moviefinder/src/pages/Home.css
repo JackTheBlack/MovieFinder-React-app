@@ -440,7 +440,7 @@ line-height: 64px;
 display:grid;
 grid-template-columns: 75% 25%;
 padding-top: 2%;  
-margin-left: 5%;
+
 /* Primary/White  */
 padding: auto;
 color: #FFFFFF;
@@ -515,15 +515,6 @@ background-color: white;
  
   
  
-.modal{
- flex-direction: column;
-  width: 80%;
-  height: 100%;
-
-  background-color:#111111;
-  border-radius: 20px;
-
-}
 
 
 
@@ -972,7 +963,10 @@ align-items: center;
 .item2{
   display: none;
 }
-
+.img-thumbnail{
+  border: none;
+  background-color: transparent;
+}
 
 
   .cards-view1{

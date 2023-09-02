@@ -59,7 +59,7 @@ export default function Navbar(){
   
 
     return(<>
-        <nav >
+          <nav >
         <div className="nav-grid">
            <div className="img1" >
                 <img className="movie-finder" src={movieFinder}  alt="movie-finder"/>

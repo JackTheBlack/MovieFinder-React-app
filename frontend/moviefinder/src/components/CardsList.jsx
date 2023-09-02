@@ -134,21 +134,21 @@ return () => window.removeEventListener('scroll', handleScroll);
 
 
     return(<>
-<div className="most-watched-grid-container">
+<div className="container">
 
 
-<div className="most-watched-grid">
-        <div className="most-watched-grid item1">
-            Most Watched
+<div className="d-flex justify-content-lg-between justify-content-center ">
+        <div className="most-watched-grid item1 d-inline">
+          <span className="d-flex justify-content-center align-items-center ">  Most Watched</span>
         </div>  
      
-        <div className="most-watched-grid item2">
+        <div className="most-watched-grid item2 d-none d-md-flex ">
            <div onClick={handleColumns} className="buttons-columns" alt="columns" id="columns">
-                <img className="rectangle" src={rectangle2} alt="columns"/>
-                <img className="rectangle"  src={rectangle2} alt="columns"/>
-                <img className="rectangle"  src={rectangle2} alt="columns"/>
+                <img className="rectangle pe-1" src={rectangle2} alt="columns"/>
+                <img className="rectangle pe-1"  src={rectangle2} alt="columns"/>
+                <img className="rectangle pe-1"  src={rectangle2} alt="columns"/>
            </div>
-           <div onClick={handleRows} id="rows"alt="rows">
+           <div onClick={handleRows} className="ps-2" id="rows"alt="rows">
                 <img src={rectangle1} alt="rows"/>
             </div>
 
@@ -177,10 +177,16 @@ return () => window.removeEventListener('scroll', handleScroll);
    </>
    :
    <>
-     <div  className={view}>
+     <div  className="conrainer">
+      
+        <div className="row">
+
+      
+
+     
          { three.map((item,index)=>
        
-          <div key={index} className="cardElement" style={{marginTop:"2em" }}>
+          <div key={index} className=" d-flex  justify-content-md-center justify-content-center col-12 col-md-4 mt-5  ">
             <Card220 key={index}  item={item}/> 
         
           </div>
@@ -191,7 +197,9 @@ return () => window.removeEventListener('scroll', handleScroll);
            
         )
 }
-</div>   
+</div>
+</div>
+ 
    </> }
       
 
@@ -199,6 +207,8 @@ return () => window.removeEventListener('scroll', handleScroll);
 </> }
  
 </div>
+
+
 
     </>
 

@@ -74,7 +74,7 @@ useEffect(() => {
   });
 
 
-    return(<>
+    return(<> <MovieDetails/>
 {/*
 {(window.localStorage.getItem("accessToken")===null)&&(window.sessionStorage.getItem("accessToken")===null)?
 <>
@@ -91,7 +91,7 @@ useEffect(() => {
         </header>
         
         <Banner/>
-       <MovieDetails/>
+      
  
         
 

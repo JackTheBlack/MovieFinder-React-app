@@ -66,13 +66,17 @@ const cardInfo={
 
 const handleClick=()=>{
     setSelectedMovie(item)
-   let modal=document.getElementById("dialog")
-   modal.showModal()
+
+   console.log("modal press")
+  // modal.showModal()
 
 }
 
-return(
-    <div  onClick={handleClick} style={cardStyle} className="card220">
+return(<>
+
+
+
+    <div  onClick={handleClick} data-bs-toggle="modal" data-bs-target="#exampleModal" style={cardStyle} className="card220">
         <div className="card220Shadow">
             <article style={cardInfo}>
                     <span>{title()} </span>
@@ -88,6 +92,9 @@ return(
         </div>
 
     </div>
+
+
+</>
 )
 
 
